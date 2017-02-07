@@ -33,9 +33,29 @@ class RepositoryController extends Controller
         return $this->render('index', compact('repository', 'contributors'));
     }
 
+    /**
+     * Searches repositories.
+     *
+     * @return string
+     * @throws HttpException
+     */
     public function actionSearch()
     {
-        return $this->render('search');
+        $request = Yii::$app->request;
+        $s = $request->get('s');
+
+        if ($s) {
+            try {
+                $client = new Client();
+                $repositories = $client->api('repo')->find($s)['repositories'];
+            } catch (RuntimeException $e) {
+                throw new HttpException(404, $e->getMessage());
+            }
+        } else {
+            $repositories = [];
+        }
+
+        return $this->render('search', compact('s', 'repositories'));
     }
 
 }
