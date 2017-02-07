@@ -49,12 +49,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     </dl>
                 </div>
                 <div class="panel-footer text-right">
-                    <?= LikeButtonWidget::widget() ?>
+                    <?= LikeButtonWidget::widget(['type' => 'repository', 'name' => $repository['owner'] . '/' . $repository['name']]) ?>
                 </div>
             </div>
         <?php endforeach; ?>
-    <?php } elseif (empty($s)) { ?>
-        <p>No search term specified.</p>
     <?php } else { ?>
         <p>No results.</p>
     <?php } ?>

@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     </dl>
                 </div>
                 <div class="panel-footer text-right">
-                    <?= LikeButtonWidget::widget() ?>
+                    <?= LikeButtonWidget::widget(['type' => 'repository', 'name' => $repository['full_name']]) ?>
                 </div>
             </div>
         </div>
@@ -65,7 +65,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <li class="list-group-item">
                                 <?= Html::a(Html::encode($contributor['login']), ['contributor/index', 'name' => $contributor['login']]) ?>
                                 <span class="pull-right">
-                                    <?= LikeButtonWidget::widget() ?>
+                                    <?= LikeButtonWidget::widget(['type' => 'contributor', 'name' => $contributor['login']]) ?>
                                 </span>
                             </li>
                         <?php endforeach; ?>

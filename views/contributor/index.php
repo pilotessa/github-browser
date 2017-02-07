@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     </dl>
                 </div>
                 <div class="panel-footer text-right">
-                    <?= LikeButtonWidget::widget() ?>
+                    <?= LikeButtonWidget::widget(['type' => 'contributor', 'name' => $contributor['login']]) ?>
                 </div>
             </div>
         </div>

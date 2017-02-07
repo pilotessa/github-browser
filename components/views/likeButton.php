@@ -4,5 +4,6 @@ use yii\helpers\Html;
 use yii\widgets\Pjax;
 
 Pjax::begin(['enablePushState' => false]);
-echo Html::a("Like <span class=\"badge\">0</span>", '#', ['class' => 'like btn btn-primary btn-xs']);
+echo Html::beginTag('div', ['class' => 'likeButtonPlaceholder', 'data-type' => $type, 'data-name' => $name]);
+echo Html::endTag('div');
 Pjax::end();

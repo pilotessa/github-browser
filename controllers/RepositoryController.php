@@ -2,26 +2,27 @@
 
 namespace app\controllers;
 
-use Yii;
 use yii\web\Controller;
 use yii\web\HttpException;
 use Github\Client;
 use RuntimeException;
 
+/**
+ * Class RepositoryController
+ * @package app\controllers
+ */
 class RepositoryController extends Controller
 {
     /**
      * Displays the project details with the contributors list.
      *
+     * @param $owner
+     * @param $name
      * @return string
      * @throws HttpException
      */
-    public function actionIndex()
+    public function actionIndex($owner = 'yiisoft', $name = 'yii')
     {
-        $request = Yii::$app->request;
-        $owner = $request->get('owner', Yii::$app->params['defaultRepositoryOwner']);
-        $name = $request->get('name', Yii::$app->params['defaultRepositoryName']);
-
         try {
             $client = new Client();
             $repository = $client->api('repo')->show($owner, $name);
@@ -36,23 +37,17 @@ class RepositoryController extends Controller
     /**
      * Searches repositories.
      *
+     * @param $s
      * @return string
      * @throws HttpException
      */
-    public function actionSearch()
+    public function actionSearch($s)
     {
-        $request = Yii::$app->request;
-        $s = $request->get('s');
-
-        if ($s) {
-            try {
-                $client = new Client();
-                $repositories = $client->api('repo')->find($s)['repositories'];
-            } catch (RuntimeException $e) {
-                throw new HttpException(404, $e->getMessage());
-            }
-        } else {
-            $repositories = [];
+        try {
+            $client = new Client();
+            $repositories = $client->api('repo')->find($s)['repositories'];
+        } catch (RuntimeException $e) {
+            throw new HttpException(404, $e->getMessage());
         }
 
         return $this->render('search', compact('s', 'repositories'));

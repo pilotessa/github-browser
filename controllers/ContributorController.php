@@ -2,7 +2,6 @@
 
 namespace app\controllers;
 
-use Yii;
 use yii\web\Controller;
 use yii\web\HttpException;
 use Github\Client;
@@ -13,14 +12,12 @@ class ContributorController extends Controller
     /**
      * Displays contributor details.
      *
+     * @param $name
      * @return string
      * @throws HttpException
      */
-    public function actionIndex()
+    public function actionIndex($name)
     {
-        $request = Yii::$app->request;
-        $name = $request->get('name');
-
         try {
             $client = new Client();
             $contributor = $client->api('user')->show($name);
