@@ -21,5 +21,3 @@ jQuery.fn.extend({
         });
     }
 });
-
-$(".like").like();
