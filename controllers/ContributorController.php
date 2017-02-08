@@ -22,7 +22,7 @@ class ContributorController extends Controller
             $client = new Client();
             $contributor = $client->api('user')->show($name);
         } catch (RuntimeException $e) {
-            throw new HttpException(404, $e->getMessage());
+            throw new HttpException(400, $e->getMessage());
         }
 
         return $this->render('index', compact('contributor'));

@@ -4,28 +4,13 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\components\LikeButtonWidget;
 
 AppAsset::register($this);
-
-$to = Url::to(['like/index']);
-$js = <<<JS
-    $(".likeButtonPlaceholder").each(function () {
-        var \$self = $(this);
-        $.ajax({
-            url: "$to",
-            data: \$self.data(),
-            success: function (response) {
-                \$self.replaceWith(response);
-            }
-        });
-    });
-JS;
-$this->registerJs($js);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

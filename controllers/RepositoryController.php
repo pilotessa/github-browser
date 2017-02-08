@@ -28,7 +28,7 @@ class RepositoryController extends Controller
             $repository = $client->api('repo')->show($owner, $name);
             $contributors = $client->api('repo')->contributors($owner, $name);
         } catch (RuntimeException $e) {
-            throw new HttpException(404, $e->getMessage());
+            throw new HttpException(400, $e->getMessage());
         }
 
         return $this->render('index', compact('repository', 'contributors'));
@@ -47,7 +47,7 @@ class RepositoryController extends Controller
             $client = new Client();
             $repositories = $client->api('repo')->find($s)['repositories'];
         } catch (RuntimeException $e) {
-            throw new HttpException(404, $e->getMessage());
+            throw new HttpException(400, $e->getMessage());
         }
 
         return $this->render('search', compact('s', 'repositories'));

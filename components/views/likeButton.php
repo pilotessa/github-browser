@@ -1,9 +1,6 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\Pjax;
+use yii\helpers\Url;
 
-Pjax::begin(['enablePushState' => false]);
-echo Html::beginTag('div', ['class' => 'likeButtonPlaceholder', 'data-type' => $type, 'data-name' => $name]);
-echo Html::endTag('div');
-Pjax::end();
+echo Html::a("", Url::to(['like/index', 'type' => $type, 'name' => $name]), ['class' => 'like']);
