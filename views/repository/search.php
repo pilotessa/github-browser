@@ -54,6 +54,8 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         <?php endforeach; ?>
     <?php } else { ?>
-        <p>No results.</p>
+        <div class="alert alert-warning">
+            <p>No results.</p>
+        </div>
     <?php } ?>
 </div>

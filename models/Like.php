@@ -33,7 +33,7 @@ class Like extends \yii\db\ActiveRecord
             [['object_type'], 'string', 'max' => 12],
             [['object_name'], 'string', 'max' => 255],
             [['object_type'], 'validateType'],
-            [['user_id', 'object_type', 'object_name'], 'unique', 'targetAttribute' => ['user_id', 'object_type', 'object_name']]
+            [['user_id', 'object_type', 'object_name'], 'unique', 'targetAttribute' => ['user_id', 'object_type', 'object_name']],
         ];
     }
 

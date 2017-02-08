@@ -1,6 +1,6 @@
 jQuery.fn.extend({
     like: function () {
-        function send(item) {
+        function update(item) {
             var $item = $(item);
             $.ajax({
                 url: $item.attr("href"),
@@ -12,12 +12,12 @@ jQuery.fn.extend({
         }
 
         $(document).on("click", this.selector, function () {
-            send(this);
+            update(this);
             return false;
         });
 
         return this.each(function () {
-            send(this);
+            update(this);
         });
     }
 });
