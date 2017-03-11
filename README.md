@@ -1,11 +1,11 @@
 Basic GitHub projects browser
 =============================
 
-Framework: [Yii 2](http://www.yiiframework.com/)
+Framework: <a href="http://www.yiiframework.com/" target="_blank">Yii2</a>
 
-GitHub API client: [KnpLabs/php-github-api](https://github.com/KnpLabs/php-github-api)
+GitHub API client: <a href="https://github.com/KnpLabs/php-github-api" target="_blank">KnpLabs/php-github-api</a>
 
-Now the app displays only limited sets of data (contributors and repositories)
+[Live demo](http://test.helene.com.ua/github_browser/)
 
 TODO List
 ---------

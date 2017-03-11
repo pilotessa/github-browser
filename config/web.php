@@ -45,6 +45,16 @@ $config = [
             'rules' => [
             ],
         ],
+        'assetManager' => [
+            'bundles' => [
+                'yii\bootstrap\BootstrapAsset' => [
+                    'sourcePath' => null,
+                    'basePath' => '@webroot',
+                    'baseUrl' => '@web',
+                    'css' => ['css/bootstrap.min.css'],
+                ],
+            ],
+        ],
     ],
     'params' => $params,
 ];

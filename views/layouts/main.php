@@ -77,7 +77,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; Elena Mukhina <?= date('Y') ?></p>
+        <p class="pull-left">&copy; <a href="http://helene.com.ua" target="_blank">Елена Мухина</a> <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
